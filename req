@@ -1,0 +1,9 @@
+numpy
+matplotlib
+sys
+tensorflow
+BatchIterator
+generation
+abc
+scipy
+random
