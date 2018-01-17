@@ -1,8 +1,5 @@
 numpy
 matplotlib
 tensorflow
-BatchIterator
-generation
-abc
 scipy
-random
+generation
