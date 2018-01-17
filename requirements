@@ -1,6 +1,5 @@
 numpy
 matplotlib
-sys
 tensorflow
 BatchIterator
 generation
