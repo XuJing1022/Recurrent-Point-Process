@@ -28,7 +28,7 @@ DIM_SIZE = 7  # equal num of classes
 mi = MarkedIntensityHomogenuosPoisson(DIM_SIZE)
 for u in range(DIM_SIZE):
     mi.initialize(1.0, u)
-simulated_sequences = generate_samples_marked(mi, 15.0, 1000)
+simulated_sequences = generate_samples_marked(mi, 15.0, 1000)  # 1000个[[],[],...]
 event_iterator = PaddedDataIterator(simulated_sequences, 0, MARK=True, DIFF=True)
 
 
@@ -153,7 +153,7 @@ def RNNPP(rnn_inputs_event,  # dims batch_size x num_steps x input_size(mark&tim
     return total_loss, mark_loss, time_loss
 
 
-event_sequence = tf.placeholder(tf.float32, shape=[BATCH_SIZE, None, 2])
+event_sequence = tf.placeholder(tf.float32, shape=[BATCH_SIZE, None, 2])  # 列为2，行不定
 time_series = tf.placeholder(tf.float32, shape=[BATCH_SIZE, None, NUM_steps_timeseries, Timeseries_feature])
 
 seqlen = tf.placeholder(tf.int32, shape=[BATCH_SIZE])
