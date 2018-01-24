@@ -1,5 +1,9 @@
-numpy
+pytz
+pyparsing
+six
+cycler
+python-dateutil
 matplotlib
-tensorflow
+numpy
 scipy
-generation
+tensorflow
