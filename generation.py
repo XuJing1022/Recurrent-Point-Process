@@ -126,7 +126,7 @@ class MarkedIntensityHomogenuosPoisson(Intensity):
         return inten
 
 
-def generate_samples_marked(intensity, T, n):
+def generate_samples_marked(intensity, T, n):  # 生成标注样本
     U = intensity.dim  # event类型数
     Sequences = []
     inds = np.arange(U)

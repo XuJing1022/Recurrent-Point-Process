@@ -103,7 +103,7 @@ def RNNPP(rnn_inputs_event,  # dims batch_size x num_steps x input_size(mark&tim
             w_t = tf.get_variable('wt', [1], initializer=tf.constant_initializer(1.0))
             b_t = tf.get_variable('bt', [1], initializer=tf.constant_initializer(0.0))
 
-        if loss == 'intensity':
+        if loss == 'intensity':  # 体现点过程之处
             wt = tf.cond(tf.less(tf.reshape(tf.abs(w_t), []), epilson), lambda: tf.sign(wt) * epilson, lambda: wt)  # put in wrong position before
             part1 = tf.matmul(rnn_outputs, W_t) + b_t  # mat multiple
             part2 = wt * y[:, 1]
@@ -123,7 +123,7 @@ def RNNPP(rnn_inputs_event,  # dims batch_size x num_steps x input_size(mark&tim
             elif TYPE == 'timeseries':
                 W_l = tf.get_variable('Wl', [state_size_timeseries, num_classes])
 
-            b_l = tf.get_variable('bl', [num_classes], initializer=tf.constant_initializer(0.0))
+            b_l = tf.get_variable('bl', [num_classes], initializer=tf.constant_initializer(0.0))  # ?
 
         mark_logits = tf.matmul(rnn_outputs, W_l) + b_l
         mark_true = tf.one_hot(tf.cast(y[:, 0], tf.int32), num_classes)
